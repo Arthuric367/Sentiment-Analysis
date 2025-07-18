@@ -1,4 +1,4 @@
-**Sentiment Analysis of Movie Reviews**
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/e58e2ee5-7c78-4226-8e62-45b524222ce4" />**Sentiment Analysis of Movie Reviews**
 
 This project performs sentiment analysis on IMDb movie reviews using Logistic Regression, achieving 89.24% accuracy. It includes an interactive **Streamlit web app** deployed in Google Colab, allowing users to input movie reviews and receive real-time sentiment predictions (positive or negative).
 
@@ -58,11 +58,73 @@ streamlit run app.py
 5. Open the local URL (e.g., http://localhost:8501) in a browser.
 
 **Results**
+2025/07/17
+v1.0.01 
+1. Logistic Regression with uning the regularization parameter C
+Best C: 1
+Best Cross-Validation Accuracy: 0.89
+Test Accuracy: 0.89
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/d365ae0a-386e-49d7-abca-6e20a3f00093" />
+
+2. Try a wider range of C values and include additional Logistic Regression parameters like solver or penalty to find a better configuration.
+  1. Wider C Range: Test smaller and larger values to capture potential improvements.
+  2. Additional Parameters: Include solver (e.g., lbfgs, liblinear) and penalty (e.g., l2, l1 for liblinear).
+  3. Add N-grams:
+  4. Modify the TfidfVectorizer:
+     - vectorizer = TfidfVectorizer(max_features=10000, ngram_range=(1, 2))
+
+#Increase max_features:
+#Change to max_features=10000 (from 5000) to include more words.
+Best C: 1
+Best Cross-Validation Accuracy: 0.90
+Test Accuracy: 0.90
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/83edb2d2-8d7b-414f-8873-0c0774291a31" />
+
+v1.0.10 
+1. Support Vector Machine (SVM)
+Accuracy: 0.89
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/090541e4-1f11-4355-9848-474821291de4" />
+
+v1.0.10 
+2. Support Vector Machine (SVM) Hyperparameter tuning: Optimal C in LinearSVC
+Best C: 0.1
+Test Accuracy: 0.90
+Accuracy: 0.89
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/cba68a1d-11e6-4345-9a5d-efea49adfbfa" />
+
+v1.0.20 Naive Bayes
+Accuracy: 0.87
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/6c8ffd42-4ae7-4a30-b2ee-e0433bed0d62" />
+
+v1.0.30 Random Forest
+Accuracy: 0.86
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/d2fd543a-519b-45b2-a2f8-0fe5b0e5ac22" />
+
+v1.0.40 Deep Learning (LSTM)
+500/500 ━━━━━━━━━━━━━━━━━━━━ 114s 223ms/step - accuracy: 0.7742 - loss: 0.4621 - val_accuracy: 0.8855 - val_loss: 0.2795
+Epoch 2/5
+500/500 ━━━━━━━━━━━━━━━━━━━━ 146s 232ms/step - accuracy: 0.9119 - loss: 0.2259 - val_accuracy: 0.8834 - val_loss: 0.2853
+Epoch 3/5
+500/500 ━━━━━━━━━━━━━━━━━━━━ 139s 228ms/step - accuracy: 0.9351 - loss: 0.1736 - val_accuracy: 0.8804 - val_loss: 0.3005
+Epoch 4/5
+500/500 ━━━━━━━━━━━━━━━━━━━━ 143s 230ms/step - accuracy: 0.9428 - loss: 0.1495 - val_accuracy: 0.8777 - val_loss: 0.3304
+Epoch 5/5
+500/500 ━━━━━━━━━━━━━━━━━━━━ 112s 224ms/step - accuracy: 0.9600 - loss: 0.1121 - val_accuracy: 0.8726 - val_loss: 0.3477
+313/313 ━━━━━━━━━━━━━━━━━━━━ 11s 33ms/step - accuracy: 0.8758 - loss: 0.3478
+Accuracy: 0.88
+313/313 ━━━━━━━━━━━━━━━━━━━━ 10s 32ms/step
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/abcbe47a-6325-4ab7-8773-2c58ddbc2c5f" />
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 51ms/step
+
+2025/07/16
+v1.0.00 Logistic Regression
 Accuracy: 89.24% on the test set.
 Example Prediction:
   Input: "This movie was amazing!"
   Output: Predicted Sentiment: positive
 Visualization: Includes a confusion matrix to show model performance.
+<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/ffa05351-1a47-438c-835d-bad108744ef9" />
+
 
 **License**
 This project is licensed under the MIT License. See the LICENSE file for details.
