@@ -58,6 +58,26 @@ streamlit run app.py
 5. Open the local URL (e.g., http://localhost:8501) in a browser.
 
 **Results**
+2025/07/18
+v1.0.11 Support Vector Machine (SVM)
+Tune Additional Parameters:
+Parameters:
+C: Try a finer grid around 0.1 (e.g., [0.05, 0.1, 0.2, 0.5]) to pinpoint the optimal regularization.
+loss: Test hinge (default) vs. squared_hinge to adjust the loss function.
+dual: Set to True or False (default depends on data size; False is faster for large datasets like yours).
+#Reminder: Either **loss** or **dual** could exist for each time
+
+Runtime: 81.966s - 93s
+Result: 
+  Best C: 0.2
+  Test Accuracy: 0.90
+  Accuracy: 0.89
+  <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/05f43c77-837f-4d82-a0b4-3027ebd8eea6" />
+
+Testing with Non-Linear SVM (SVC with Kernel)
+- Colab standard GPU not capable of running
+- No Respond
+  
 2025/07/17
 v1.0.01 
 1. Logistic Regression with uning the regularization parameter C
