@@ -1,4 +1,4 @@
-<img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/e58e2ee5-7c78-4226-8e62-45b524222ce4" />**Sentiment Analysis of Movie Reviews**
+**Sentiment Analysis of Movie Reviews**
 
 This project performs sentiment analysis on IMDb movie reviews using Logistic Regression, achieving 89.24% accuracy. It includes an interactive **Streamlit web app** deployed in Google Colab, allowing users to input movie reviews and receive real-time sentiment predictions (positive or negative).
 
