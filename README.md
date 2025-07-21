@@ -59,6 +59,21 @@ streamlit run app.py
 5. Open the local URL (e.g., http://localhost:8501) in a browser.
 
 # Results
+## 2025/07/21
+## v1.0.11 Support Vector Machine (SVM)
+Hyperparameter tuning:
+- Optimize SVC Tuning with Reduced Parameters
+- To make SVC with RBF kernel feasible in Colab:
+
+- Reduce n_iter: Lower the number of iterations in RandomizedSearchCV to 5-10.
+- Limit Data Size: Use a smaller subset of the IMDb dataset (e.g., 10,000 reviews) for tuning, then train the final model on the full dataset.
+- Narrow Parameter Range: Focus on a smaller C and gamma range to reduce computation.
+
+Result:
+- Best Parameters: {'C': np.float64(1.5751320499779735), 'gamma': 'scale', 'kernel': 'rbf'}
+- Best Cross-Validation Accuracy: 0.88
+**Remark: Resources not enough to run SVC**
+
 ## 2025/07/18
 ## v1.0.11 Support Vector Machine (SVM)
 Tune Additional Parameters:
