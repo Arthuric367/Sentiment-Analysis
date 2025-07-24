@@ -59,7 +59,23 @@ streamlit run app.py
 5. Open the local URL (e.g., http://localhost:8501) in a browser.
 
 # Results
-## 2025/07/21
+## 2025/7/24
+## v1.0.12 Support Vector Machine (SWM)
+Try to replace for SVC by XGBoost to save resources running on Colab.
+
+- /usr/local/lib/python3.11/dist-packages/sklearn/model_selection/_search.py:317: UserWarning: The total space of parameters 8 is smaller than n_iter=10. Running 8 iterations. For exhaustive searches, use GridSearchCV.
+  warnings.warn(
+- Best Parameters: {'n_estimators': 200, 'max_depth': 5, 'learning_rate': 0.1}
+- Best Cross-Validation Accuracy: 0.83
+- Test Accuracy: 0.85
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/759a1f1e-680b-40db-97e3-66aa73d00108" />
+
+## 2025/7/22
+## v1.0.11 Support Vector Machine (SWM)
+- Best Parameters: {'C': np.float64(1.5751320499779735), 'gamma': 'scale', 'kernel': 'rbf'}
+- Best Cross-Validation Accuracy: 0.88
+**Remark: Resources not enough to run SVC**
+
 ## v1.0.11 Support Vector Machine (SVM)
 Hyperparameter tuning:
 - Optimize SVC Tuning with Reduced Parameters
@@ -72,7 +88,6 @@ Hyperparameter tuning:
 Result:
 - Best Parameters: {'C': np.float64(1.5751320499779735), 'gamma': 'scale', 'kernel': 'rbf'}
 - Best Cross-Validation Accuracy: 0.88
-**Remark: Resources not enough to run SVC**
 
 ## 2025/07/18
 ## v1.0.11 Support Vector Machine (SVM)
