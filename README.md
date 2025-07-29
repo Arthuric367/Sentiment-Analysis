@@ -61,6 +61,69 @@ streamlit run app.py
 # Results
 ## 2025/7/24
 ## v1.0.12 Support Vector Machine (SWM)
+- Complete 3 test so as to apply XGBoost.
+
+Test 1:
+- XGBoost hyperparameter tuning:
+- Increase the vectorizer max feature to 15,000 and add trigrams.
+
+- Result: GPU power is not enough to run, disconect.
+
+Test 2:
+- Test 1 + enable GPU G4
+
+Result:
+50% accurary which like flip a coin, it seems no proper training.
+
+Error:
+- /usr/local/lib/python3.11/dist-packages/sklearn/model_selection/_search.py:317: UserWarning: The total space of parameters 8 is smaller than n_iter=10. Running 8 iterations. For exhaustive searches, use GridSearchCV.
+  warnings.warn(
+- /usr/local/lib/python3.11/dist-packages/xgboost/training.py:183: UserWarning: [04:14:19] WARNING: /workspace/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    - E.g. tree_method = "hist", device = "cuda"
+
+- bst.update(dtrain, iteration=i, fobj=obj)
+  - Best Parameters: {'n_estimators': 100, 'max_depth': 5, 'learning_rate': 0.01}
+  - Best Cross-Validation Accuracy: 0.57
+- /usr/local/lib/python3.11/dist-packages/xgboost/training.py:183: UserWarning: [04:14:22] WARNING: /workspace/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    - E.g. tree_method = "hist", device = "cuda"
+
+- bst.update(dtrain, iteration=i, fobj=obj)
+- /usr/local/lib/python3.11/dist-packages/xgboost/core.py:2676: UserWarning: [04:14:27] WARNING: /workspace/src/common/error_msg.cc:27: The tree method `gpu_hist` is deprecated since 2.0.0. To use GPU training, set the `device` parameter to CUDA instead.
+
+    - E.g. tree_method = "hist", device = "cuda"
+
+  - if len(data.shape) != 1 and self.num_features() != data.shape[1]:
+- /usr/local/lib/python3.11/dist-packages/xgboost/core.py:729: UserWarning: [04:14:27] WARNING: /workspace/src/common/error_msg.cc:58: Falling back to prediction using DMatrix due to mismatched devices. This might lead to higher memory usage and slower performance. XGBoost is running on: cuda:0, while the input data is on: cpu.
+
+Potential solutions:
+- Use a data structure that matches the device ordinal in the booster.
+- Set the device for booster before call to inplace_predict.
+
+This warning will only be shown once.
+
+  return func(**kwargs)
+Test Accuracy: 0.50
+
+Test 3:
+## v1.0.12 Support Vector Machine (SWM) 
+# Add branch Arthuric367-v1.0.13
+- Use tree_method='hist' and device='cuda' for proper GPU support.
+- Convert TF-IDF output to dense format for GPU compatibility.
+- Reduce max_features to 10,000 and limit to bigrams (ngram_range=(1, 2)) to avoid memory issues.
+- Expand param_dist for better tuning.
+- Keep the subset approach (subset_size=10000) for tuning, then train on the full dataset.
+
+Result:
+- Best Parameters: {'subsample': 0.8, 'n_estimators': 300, 'max_depth': 3, 'learning_rate': 0.2, 'colsample_bytree': 0.8}
+- Best Cross-Validation Accuracy: 0.84
+- Test Accuracy: 0.87
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/abfd8123-9721-442f-a6b2-c54435915af7" />
+
+
+## 2025/7/24
+## v1.0.12 Support Vector Machine (SWM)
 Try to replace for SVC by XGBoost to save resources running on Colab.
 
 - /usr/local/lib/python3.11/dist-packages/sklearn/model_selection/_search.py:317: UserWarning: The total space of parameters 8 is smaller than n_iter=10. Running 8 iterations. For exhaustive searches, use GridSearchCV.
