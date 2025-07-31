@@ -1,4 +1,4 @@
-## Introduction
+## 1. Introduction
 **Sentiment Analysis of Movie Reviews**
 
 This project performs sentiment analysis on IMDb movie reviews using Logistic Regression, achieving 89.24% accuracy. It includes an interactive **Streamlit web app** deployed in Google Colab, allowing users to input movie reviews and receive real-time sentiment predictions (positive or negative).
@@ -37,7 +37,7 @@ The requirements.txt includes:
 - .gitignore: Excludes temporary files and the dataset.
 - LICENSE: MIT License for code usage.
 
-## How to Run
+## 1.1 How to Run
 **In Google Colab**
 
 1. Open sentiment_analysis_with_streamlit.ipynb in Google Colab.
@@ -58,7 +58,23 @@ pip install -r requirements.txt
 streamlit run app.py
 5. Open the local URL (e.g., http://localhost:8501) in a browser.
 
-# Results
+# 2. Results
+## 2025/7/29
+## v1.0.21 Naive Bayes
+Re-train with Naive Bayes due to lightweight resources needed.
+- Switch to model multinomialNB
+- Hyperparameter tunning: alpha & fit_prior.
+
+Result:
+- Best Parameters: {'alpha': np.float64(1.6748852816008435), 'fit_prior': False}
+- Best Cross-Validation Accuracy: 0.87
+- Test Accuracy: 0.87
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/1e50a64a-080e-4226-9448-d11070ccde97" />
+
+Action:
+Update version to v1.0.21 Naive Bayes with multinomialNB
+- Hyperparameter tunning: alpha & fit_prior
+
 ## 2025/7/24
 ## v1.0.12 Support Vector Machine (SWM)
 - Complete 3 test so as to apply XGBoost.
@@ -108,7 +124,7 @@ Test Accuracy: 0.50
 
 Test 3:
 ## v1.0.12 Support Vector Machine (SWM) 
-# Add branch Arthuric367-v1.0.13
+**Add branch Arthuric367-v1.0.13**
 - Use tree_method='hist' and device='cuda' for proper GPU support.
 - Convert TF-IDF output to dense format for GPU compatibility.
 - Reduce max_features to 10,000 and limit to bigrams (ngram_range=(1, 2)) to avoid memory issues.
