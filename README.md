@@ -59,6 +59,63 @@ streamlit run app.py
 5. Open the local URL (e.g., http://localhost:8501) in a browser.
 
 # 2. Results
+## 2025/7/31
+## v1.0.21 Naive Bayes
+Test 1: Train model multinomialNB with hyperparameter tunning
+- Hyperparameter tunning: smaller alpha, increase RandomizedSearch n_iter, TfidfVectorizer yo trigrams
+
+Result:
+- Best Parameters: {'alpha': np.float64(0.9747555188414592), 'fit_prior': True}
+- Best Cross-Validation Accuracy: 0.87
+- Test Accuracy: 0.87
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/953e939c-649e-44c4-a6c9-68b29a068bdf" />
+
+Action:
+- No update on version, try test_2.
+
+## v1.0.22 Naive Bayes
+Test 2:
+- Reduce noise in the feature set using SelectKBest
+
+Result:
+- Best Parameters: {'alpha': np.float64(0.8334426408004217), 'fit_prior': False}
+- Best Cross-Validation Accuracy: 0.87
+- Test Accuracy: 0.87
+- **Accuracy% is the same, but TP/TF increased.**
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/5b64f684-0df1-424e-9274-01e85107311d" />
+
+Action:
+- Update to v1.0.22, try test_3.
+
+## v1.0.22 Naive Bayes
+Test 3: Train model ComplementNB 
+
+Runtime: 105.6s
+
+Result:
+- Best Parameters: {'alpha': np.float64(0.8334426408004217), 'fit_prior': False}
+- Best Cross-Validation Accuracy: 0.87
+- Test Accuracy: 0.87
+- **No update on TP/TF**
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/af1893c0-4da2-44ad-960b-58a3d69886fd" />
+
+Action:
+- No version update, try test 4 for Ensemble model with LinearSVC & Logistic Regression
+
+## v1.0.23 Naive Bayes
+Test 4: Train MultiNomialNB ensemble with LinearSVC & Logistic Regression
+
+Runtime: 87.8s
+
+Result:
+- Best Naive Bayes Parameters: {'alpha': np.float64(0.8334426408004217), 'fit_prior': False}
+- Best Naive Bayes Cross-Validation Accuracy: 0.87
+- Ensemble Test Accuracy: 0.90
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/4bce622b-8437-46c4-8aa8-236817a47a49" />
+
+Action:
+- Update version to v1.0.23
+
 ## 2025/7/29
 ## v1.0.21 Naive Bayes
 Re-train with Naive Bayes due to lightweight resources needed.
