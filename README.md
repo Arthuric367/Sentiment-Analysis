@@ -59,6 +59,65 @@ streamlit run app.py
 5. Open the local URL (e.g., http://localhost:8501) in a browser.
 
 # 2. Results
+## 2025/8/1
+## v1.0.23 Naive Bayes
+Train MultiNomialNB ensemble with LinearSVC, SVC and Logistic Regression
+Test 1:
+- Train on subset=10000 to leverage compute power.
+- Use voting='soft' to average probabilities
+
+Runtime:
+- Cannot complete the SVC, no record
+
+Result:
+- Best Naive Bayes Parameters: {'alpha': np.float64(0.8334426408004217), 'fit_prior': False}
+- Best Naive Bayes Cross-Validation Accuracy: 0.87
+- **No SVC & ensemble model performance**
+
+Action:
+No update need, continue on test 2.
+
+## v1.0.24 Naive Bayes
+Test 2: Train MultiNomialNB ensemble with LinearSVC and Logistic Regression
+- Add Hyperparameter tunning for linearSVC and Logistic Regression
+- Enable training on full dataset
+
+Runtime: 141.9s
+
+Result:
+- Best Naive Bayes Parameters: {'alpha': np.float64(0.8334426408004217), 'fit_prior': False}
+- Best Naive Bayes Cross-Validation Accuracy: 0.87
+- Best LinearSVC Parameters: {'C': np.float64(0.5908361216819946)}
+- Best LinearSVC Cross-Validation Accuracy: 0.90
+- Best Logistic Regression Parameters: {'C': np.float64(5.996584841970366)}
+- Best Logistic Regression Cross-Validation Accuracy: 0.90
+- Ensemble Test Accuracy: 0.90
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/a151407a-21fb-45ee-be76-1723d0d16a3a" />
+
+Action:
+Update version to v1.0.24 for new ensemble model
+
+## v1.0.25 Naive Bayes
+Test 3: Train MultiNomialNB ensemble with LinearSVC and Logistic Regression
+- increase vectorizer max_features=15000 with trigrams
+- Increase KBest=8000
+
+Runtime: 84.7s
+
+Result:
+- Best Naive Bayes Parameters: {'alpha': np.float64(0.0017787658410143284), 'fit_prior': False}
+- Best Naive Bayes Cross-Validation Accuracy: 0.88
+- Best LinearSVC Parameters: {'C': np.float64(0.5908361216819946)}
+- Best LinearSVC Cross-Validation Accuracy: 0.90
+- Best Logistic Regression Parameters: {'C': np.float64(3.7554011884736247)}
+- Best Logistic Regression Cross-Validation Accuracy: 0.90
+- Ensemble Test Accuracy: 0.90
+- **TP/TF higher than test 2.
+- <img width="548" height="455" alt="image" src="https://github.com/user-attachments/assets/7e73323e-8c60-46eb-9a11-60733ab787d3" />
+
+Action:
+Update version to v1.0.25 for latest ensemble model
+
 ## 2025/7/31
 ## v1.0.21 Naive Bayes
 Test 1: Train model multinomialNB with hyperparameter tunning
